@@ -16,7 +16,6 @@ import { Conditional } from '@angular/compiler';
 export class Segment2Component implements OnInit {
   @Output() changeView = new EventEmitter();
  
-
   text: string;
   questions: any = [];
   currentQuestion: any;
