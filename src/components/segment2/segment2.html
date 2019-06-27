@@ -1,0 +1,65 @@
+<!-- Generated template for the Segment2Component component -->
+
+<div class="qestionsTitle">
+  <ion-grid>
+    <ion-row class="questionsTitleRow">
+      <ion-col>
+        <h2>Questions</h2>
+      </ion-col>
+      <ion-col class="questionsReviewButton" *ngIf="reviewActive && !questionsCompleted">
+        <button ion-button (click)='toReview()'>Review Page</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+<div class="questionSegBody" *ngIf='!questionsCompleted'>
+  <h3>{{currentQuestion.number}}</h3>
+  <h4>{{currentQuestion.question}}</h4>
+  <li *ngFor="let c of currentQuestion.choices">
+    <ol>
+      <p>{{c}}</p>
+    </ol>
+  </li>
+</div>
+<div class="questionNext" *ngIf='!questionsCompleted && !lastQuestion'>
+  <button ion-button (click)="toNextQuestion()">Next</button>
+</div>
+<div class="questionNext" *ngIf='!questionsCompleted && lastQuestion'>
+    <button ion-button (click)="toNextQuestion()" (click) ="toReview()">Complete</button>
+  </div>
+<div class="questionsCompleted" *ngIf='questionsCompleted'>
+<div class="questionCompletedBody">
+  <h4>Thank you for completing the Questionaire</h4>
+  <h5>Review your answers before submiting or continue to the Videos section</h5>
+</div>
+<div class="reviewQuestions">
+    <ion-grid class="reviewQuestionsGrid">
+        <ion-row class="reviewQuestionsRow">
+          <ion-col class ="reviewQuestionsCol" *ngFor="let q of questions; let i= index">
+          <button ion-button (click)="toQuestion(q)" (click)="setNextQuestion([i+1])" (click)="returnToQuestion()">
+            {{q.number}}
+          </button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <button ion-button (click)="reviewComplete()">Submit & continue to Videos</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+</div>
+</div>
+<ion-footer no-border>
+    <ion-toolbar class="questionsToolbar">
+        <ion-grid class="questionsGrid">
+          <ion-row class="questionsRow" no-wrap>
+            <ion-col class ="questionsCol" *ngFor="let q of questions; let i= index">
+            <button ion-button (click)="toQuestion(q)" (click)=setNextQuestion([i+1])>
+              {{q.number}}
+            </button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+  
+  </ion-footer>

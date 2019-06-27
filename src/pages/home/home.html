@@ -1,17 +1,37 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <button ion-button icon-only (click)="toProfile()">
+      <ion-icon name ="person"></ion-icon>
+    </button>
+    <ion-title class="PTCAtitle">PTCA</ion-title>
+    <button ion-button menuToggle right icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
+  <ion-segment [(ngModel)]="prep">
+    <ion-segment-button value="seg1"(click)="changeSeg1()">
+      Details
+    </ion-segment-button>
+    <ion-segment-button value="seg2" (click)="changeSeg2()">
+      Questions
+    </ion-segment-button>
+    <ion-segment-button value="seg3" (click)="changeSeg3()">
+        Videos
+      </ion-segment-button>
+  </ion-segment>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div class = 'MeetingPrepTitle'>
+    <h2>Meeting Prep Details</h2>
+  </div>
+  <div *ngIf='seg1'>
+    <segment1></segment1>
+  </div>
+  <div *ngIf='seg2'> 
+    <segment2 (changeView)="onChangeViewToVideo($event)"></segment2>
+  </div>
+  <div *ngIf='seg3'>
+    <segment3></segment3>
+  </div>
 </ion-content>

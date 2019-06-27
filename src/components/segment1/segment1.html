@@ -1,0 +1,27 @@
+<!-- Generated template for the Segment1Component component -->
+<div class="meetingDetailsTitle">
+  <h1>Details</h1>
+</div>
+<div class="meetingDetails">
+  <ion-list class="meetingDetailsList">
+    <ion-item class="meetingDetailsName">Name: {{meetingDetails[0].name}}</ion-item>
+    <ion-item class="meetingDetailsProject">Project: {{meetingDetails[0].project}}</ion-item>
+    <ion-item class="meetingDetailsLocation">Location: {{meetingDetails[0].location}}</ion-item>
+    <ion-item class="meetingDetailsTime"> Time: {{meetingDetails[0].time}}</ion-item>
+    <ion-item class="meetingDetailsDuration">Duration: {{meetingDetails[0].duration}}</ion-item>
+    <ion-item class="meetingDetailsParticipants">Participants: {{meetingDetails[1].participants}}
+      <!-- <ion-list class="meetingDetailsParticipantsList" *ngFor="let p of meetingDetails[1].participants; let i = index">
+        <ion-item> {{p}}</ion-item>
+      </ion-list> -->
+    </ion-item>
+  </ion-list>
+</div>
+<div class="meetingSummaryTitle">
+  <h1>Meeting Summary</h1>
+</div>
+<div class="meetingSummary">
+  <ion-list class="meetingSummaryList">
+    <ion-item class="meetingSummaryDescription">Description: {{meetingDetails[2].description}}</ion-item>
+    <ion-item class="meetingSummaryObjectives">Objectives: {{meetingDetails[2].objectives}}</ion-item>
+  </ion-list>
+</div>
